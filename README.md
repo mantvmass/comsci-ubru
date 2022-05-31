@@ -23,6 +23,6 @@ python server.py
 ```
 - Enjoy
 
-Copyright
+License
 ---------
 - MIT
