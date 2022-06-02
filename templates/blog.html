@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <title>computer science - ubru</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: FlexStart - v1.9.0
+    * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    {% include "navbar.html" %}
+    <!-- End Header -->
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+            <li><a href="/">Home</a></li>
+            <li>Blog</li>
+            </ol>
+            <h2>Blog / Recently</h2>
+
+        </div>
+        </section><!-- End Breadcrumbs -->
+
+        <!-- ======= Blog Section ======= -->
+        <section id="blog" class="blog">
+            <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-lg-8 entries">
+
+                        <article class="entry">
+                            <div class="entry-img">
+                                <!-- <img src="assets/img/blog/blog-4.jpg" alt="" class="img-fluid"> -->
+                            </div>
+                            <h2 class="entry-title">
+                                <a href="blog-single.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
+                            </h2>
+                            <div class="entry-meta">
+                                <ul>
+                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Phumin-DEV</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2022-05-30">June 1, 2022</time></a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="entry-content">
+                                <p>
+                                Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
+                                Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
+                                </p>
+                                <div class="read-more">
+                                    <a href="blog-single.html">Read More</a>
+                                </div>
+                            </div>
+                        </article> <!-- End blog entry -->
+
+                        <!-- pagination -->
+                        <div class="blog-pagination">
+                            <ul class="justify-content-center">
+                                <!-- <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li> -->
+                            </ul>
+                        </div> <!-- end  pagination -->
+
+                    </div><!-- End blog entries list -->
+
+                    <div class="col-lg-4">
+                        <div class="sidebar">
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="sidebar-item search-form">
+                                <form action="">
+                                <input type="text">
+                                <button type="submit"><i class="bi bi-search"></i></button>
+                                </form>
+                            </div><!-- End sidebar search formn-->
+
+                            <h3 class="sidebar-title">Categories</h3>
+                            <div class="sidebar-item categories">
+                                <ul>
+                                <li><a href="#">General <span>(1)</span></a></li>
+                                <!-- <li><a href="#">How to <span>(12)</span></a></li>
+                                <li><a href="#">Travel <span>(5)</span></a></li>
+                                <li><a href="#">Design <span>(22)</span></a></li>
+                                <li><a href="#">Creative <span>(8)</span></a></li>
+                                <li><a href="#">Educaion <span>(14)</span></a></li> -->
+                                </ul>
+                            </div><!-- End sidebar categories-->
+
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <div class="sidebar-item recent-posts">
+
+                                <div class="post-item clearfix">
+                                    <img src="{{ url_for('static', filename='image/blog/blog-recent-1.jpg') }}" alt="">
+                                    <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
+                                    <time datetime="2022-05-30">June 1, 2022</time>
+                                </div>
+
+                                <!-- <div class="post-item clearfix">
+                                    <img src="assets/img/blog/blog-recent-2.jpg" alt="">
+                                    <h4><a href="blog-single.html">Quidem autem et impedit</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="assets/img/blog/blog-recent-3.jpg" alt="">
+                                    <h4><a href="blog-single.html">Id quia et et ut maxime similique occaecati ut</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="assets/img/blog/blog-recent-4.jpg" alt="">
+                                    <h4><a href="blog-single.html">Laborum corporis quo dara net para</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div>
+
+                                <div class="post-item clearfix">
+                                    <img src="assets/img/blog/blog-recent-5.jpg" alt="">
+                                    <h4><a href="blog-single.html">Et dolores corrupti quae illo quod dolor</a></h4>
+                                    <time datetime="2020-01-01">Jan 1, 2020</time>
+                                </div> -->
+
+                            </div><!-- End sidebar recent posts-->
+
+                            <h3 class="sidebar-title">Tags</h3>
+                            <div class="sidebar-item tags">
+                                <ul>
+                                    <li><a href="#">test</a></li>
+                                    <!-- <li><a href="#">Python</a></li>
+                                    <li><a href="#">C</a></li>
+                                    <li><a href="#">C++</a></li>
+                                    <li><a href="#">Ruby</a></li>
+                                    <li><a href="#">JavaScript</a></li>
+                                    <li><a href="#">Golang</a></li>
+                                    <li><a href="#">C#</a></li>
+                                    <li><a href="#">MongoDB</a></li>
+                                    <li><a href="#">Blockchain</a></li>
+                                    <li><a href="#">IDE</a></li> -->
+                                </ul>
+                            </div><!-- End sidebar tags-->
+                        </div><!-- End sidebar -->
+                    </div><!-- End blog sidebar -->
+                </div>
+            </div>
+        </section><!-- End Blog Section -->
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    {% include "footer.html" %}
+    <!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='vendor/purecounter/purecounter.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

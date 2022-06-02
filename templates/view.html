@@ -1,20 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UBRU - สาขาวิทยาการคอมพิวเตอร์</title>
-</head>
-<body>
-    <!-- 
-        ตัวอย่างการนำเข้าไฟล์  css js img อืนๆ
-        Key:
-            href="{{ url_for('static', filename='path/css?js?png') }}"
 
-        Example:
-            <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
-     -->
-     <h1>หน้ากรอกข้อมูลของน้อง</h1>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <title>computer science - ubru</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='css/view.css') }}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Selecao - v4.7.0
+    * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+            <div class="logo">
+                <h1><a href="/">COMSCI-UBRU</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+            </div>
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-container">
+                {% if token == None and hint == None %}
+                    <h2>Token unknown</h2>
+                    <p class="">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                {% elif token == True and hint == True %}
+                    <h2>Reached the maximum limit.</h2>
+                    <p class="">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                {% else %}
+                    <h2>Hint: "{{ hint }}"</h2>
+                    <p class="">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                    <input id="allow_token" type="hidden" value="{{ token }}">
+                    <a onclick="send_sub()" class="btn-get-started scrollto">Next</a>
+                {% endif %}
+            </div>
+        </div>
+    </section><!-- End Hero -->
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+    <!-- javascript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.6.0.js') }}"></script> <!-- Ajex -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweetalert -->
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/view.js') }}"></script>
+
+
 </body>
+
 </html>

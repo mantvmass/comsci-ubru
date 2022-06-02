@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UBRU - สาขาวิทยาการคอมพิวเตอร์</title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <title>computer science - ubru</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: FlexStart - v1.9.0
+    * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 </head>
+
 <body>
-    <!-- 
-        ตัวอย่างการนำเข้าไฟล์  css js img อืนๆ
-        Key:
-            href="{{ url_for('static', filename='path/css?js?png') }}"
+    <!-- ======= Header ======= -->
+    {% include "navbar.html" %}
+    <!-- End Header -->
 
-        Example:
-            <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
-     -->
-    <h1>หน้าแรก</h1>
-    <button onclick="singin()">Sing in</button>
-    <button onclick="singup()">Sing up</button>
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <div class="text-center text-lg-start">
+                <a onclick="signin()" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                    <span>Sign In</span>
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="{{ url_for('static', filename='image/hero-img.png') }}" class="img-fluid" alt="">
+            </div>
+        </div>
+        </div>
+    </section><!-- End Hero -->
 
+    <!-- ======= Footer ======= -->
+    {% include "footer.html" %}
+    <!-- End Footer -->
 
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='vendor/purecounter/purecounter.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
 
-
-
-
-
-
+    <!-- Template Main JS File -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
     <!-- javascript -->
     <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.6.0.js') }}"></script> <!-- Ajex -->
@@ -33,8 +83,6 @@
 
     <!-- singin and singup system -->
     <script src="{{ url_for('static', filename='js/member.js') }}"></script>
-
-
 
 </body>
 </html>
