@@ -35,3 +35,13 @@ CREATE TABLE super (
     username varchar(150) NOT NULL UNIQUE,
     secret_key varchar(255) NOT NULL
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE config (
+    key_signup varchar(30) NOT NULL DEFAULT 'Phumin2002#',
+    sub_tatol int(5) NOT NULL DEFAULT 3,
+    edit_allow tinyint(1) NOT NULL DEFAULT 1  -- 1 = True / 0 = False
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+INSERT INTO `config`() VALUES ();
+INSERT INTO `super`(`username`, `secret_key`) VALUES ('Phumin', 'phuminmaliwan_ning')
