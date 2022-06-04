@@ -17,19 +17,19 @@ function delete_hint() {
                             window.location.href = "/manage"
                         } else {
                             Swal.fire({
-                                title: 'เกิดข้อผิดพลาด!',
+                                title: 'An error occurred!',
                                 text: response,
                                 icon: 'warning',
-                                confirmButtonText: 'ตกลง'
+                                confirmButtonText: 'OK'
                             })
                         }
                     },
                     error: function(response){
                         Swal.fire({
-                            title: 'เกิดข้อผิดพลาด!',
-                            text: 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้งในภายหลัง!',
+                            title: 'An error occurred!',
+                            text: 'Please try again later.',
                             icon: 'error',
-                            confirmButtonText: 'ตกลง'
+                            confirmButtonText: 'OK'
                         })
                     }
                 })
@@ -71,19 +71,19 @@ function edit_hint() {
                                 window.location.href = "/manage"
                             } else {
                                 Swal.fire({
-                                    title: 'เกิดข้อผิดพลาด!',
+                                    title: 'An error occurred!',
                                     text: response,
                                     icon: 'warning',
-                                    confirmButtonText: 'ตกลง'
+                                    confirmButtonText: 'OK'
                                 })
                             }
                         },
                         error: function(response){
                             Swal.fire({
-                                title: 'เกิดข้อผิดพลาด!',
-                                text: 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้งในภายหลัง!',
+                                title: 'An error occurred!',
+                                text: 'Please try again later.',
                                 icon: 'error',
-                                confirmButtonText: 'ตกลง'
+                                confirmButtonText: 'OK'
                             })
                         }
                     })

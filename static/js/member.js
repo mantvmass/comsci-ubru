@@ -23,9 +23,9 @@ function signin() {
                     if (response == "success"){
                         let timerInterval
                         Swal.fire({
-                            title: 'Redirect',
+                            title: 'Success',
                             icon: 'success',
-                            html: 'จะเปลี่ยนเส็นทางในอีก <b></b>.',
+                            html: 'Will redirect in <b></b> milliseconds.',
                             timer: 4000,
                             timerProgressBar: true,
                             didOpen: () => {
@@ -45,19 +45,19 @@ function signin() {
                         })
                     } else {
                         Swal.fire({
-                            title: 'เกิดข้อผิดพลาด!',
+                            title: 'An error occurred!',
                             text: response,
                             icon: 'warning',
-                            confirmButtonText: 'ตกลง'
+                            confirmButtonText: 'Ok'
                         })
                     }
                 },
                 error: function(response){
                     Swal.fire({
-                        title: 'เกิดข้อผิดพลาด!',
-                        text: 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้งในภายหลัง!',
+                        title: 'An error occurred!',
+                        text: 'Please try again later.',
                         icon: 'error',
-                        confirmButtonText: 'ตกลง'
+                        confirmButtonText: 'Ok'
                     })
                 }
             })
@@ -96,23 +96,23 @@ function signup() {
                         Swal.fire({
                             title: 'Success',
                             icon: 'success',
-                            confirmButtonText: 'ตกลง'}
+                            confirmButtonText: 'Ok'}
                         )
                     } else {
                         Swal.fire({
-                            title: 'เกิดข้อผิดพลาด!',
+                            title: 'An error occurred!',
                             text: response,
                             icon: 'warning',
-                            confirmButtonText: 'ตกลง'}
+                            confirmButtonText: 'Ok'}
                         )
                     }
                 },
                 error: function(response){
                     Swal.fire({
-                        title: 'เกิดข้อผิดพลาด!',
-                        text: 'เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้งในภายหลัง!',
+                        title: 'An error occurred!',
+                        text: 'Please try again later.',
                         icon: 'error',
-                        confirmButtonText: 'ตกลง'}
+                        confirmButtonText: 'Ok'}
                     )
                 }
             })
