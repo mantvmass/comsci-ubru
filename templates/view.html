@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
     <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <title>computer science - ubru</title>
+    <title>FRESHY - COMSCI-UBRU</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -46,17 +46,17 @@
         <!-- Slide 1 -->
         <div class="carousel-item active">
             <div class="carousel-container">
-                {% if token == None and hint == None %}
+                {% if hint == None %}
                     <h2>Token unknown</h2>
                     <p class="">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                {% elif token == True and hint == True %}
+                {% elif hint == True %}
                     <h2>Reached the maximum limit.</h2>
                     <p class="">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
                 {% else %}
                     <h2>Hint: "{{ hint }}"</h2>
                     <p class="">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
                     <input id="allow_token" type="hidden" value="{{ token }}">
-                    <a onclick="send_sub()" class="btn-get-started scrollto">Next</a>
+                    <a href="/form" class="btn-get-started scrollto">Next</a>
                 {% endif %}
             </div>
         </div>

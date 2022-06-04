@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
     <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <title>computer science - ubru</title>
+    <title>DASHBOARD - COMSCI-UBRU</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -87,13 +87,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row"><a href="#"><img src="{{ url_for('static', filename='image/product-5.jpg') }}" alt=""></a></th>
-                            <td class="fw-bold">ภูมินท์ มะลิวรรณ</td>
-                            <td class="fw-bold">แมน</td>
-                            <td><a href="#" class="text-primary fw-bold">See</a></td>
-                            <td>2022/05/12</td>
-                        </tr>
+                        {% for h in data %}
+                            <tr>
+                                <th scope="row"><a href="#"><img src="{{ url_for('static', filename='image/freshy/'+h.img_path) }}" alt=""></a></th>
+                                <td class="fw-bold">{{ h.fullname }}</td>
+                                <td class="fw-bold">{{ h.nickname }}</td>
+                                <td>
+                                    <a href="#" class="text-primary fw-bold" onclick="getdata('{{ h.number }}')">See</a>
+                                </td>
+                                <td>{{ h.created_at }}</td>
+                            </tr>
+                        {% endfor %}
+                        
                         </tbody>
                     </table>
                     </div>
@@ -155,6 +160,45 @@
     <!-- Template Main JS File -->
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 
+    <!-- javascript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.6.0.js') }}"></script> <!-- Ajex -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweetalert -->
+
+    <script type="text/javascript">
+        function getdata(params) {
+            $.ajax({  
+                    method: 'POST',
+                    url: '/getdata',
+                    data: { 'number': params },
+                    success: function(response) {
+                        console.log(response)
+                        Swal.fire({
+                            title: 'น้อง: '+ response.nickname,
+                            // text: response.nickname,
+                            imageUrl: '/static/image/freshy/'+response.img_path,
+                            // imageWidth: 200,
+                            // imageHeight: 100,
+                            imageAlt: 'Custom image',
+                            html: `
+                                <h5>ชื่อ: ${response.fullname}</h5>
+                                <h5>เบอร์: ${response.number}</h5>
+                                <h5>ลิงค์เฟส: ${response.facebook_url}</h5>
+                            `
+                            }
+                        )
+                    },
+                    error: function(response){
+                        Swal.fire({
+                            title: 'An error occurred!',
+                            text: 'Please try again later.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                }
+            )
+        }
+    </script>
 </body>
 
 </html>

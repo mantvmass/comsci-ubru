@@ -22,10 +22,12 @@ ALTER TABLE tokens ADD CONSTRAINT tokens_id_accounts_id FOREIGN KEY (id) REFEREN
 
 
 CREATE TABLE sub (
+    id int(100) NOT NULL,
+    fullname varchar(150) NOT NULL,
     nickname varchar(50) NOT NULL,
-    full_name varchar(150) NOT NULL,
     save_token varchar(255) NOT NULL, -- token table
     facebook_url varchar(200) NOT NULL,
+    number varchar(11) NOT NULL,
     img_path varchar(255) NOT NULL,
     created_at timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=INNODB DEFAULT CHARSET=utf8;

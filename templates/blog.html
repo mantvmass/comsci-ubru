@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
     <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <title>computer science - ubru</title>
+    <title>BLOG - COMSCI-UBRU</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -63,26 +63,25 @@
 
                         <article class="entry">
                             <div class="entry-img">
-                                <!-- <img src="assets/img/blog/blog-4.jpg" alt="" class="img-fluid"> -->
+                                <img src="{{ url_for('static', filename='image/blog/blog-1.jpg') }}" alt="" class="img-fluid">
                             </div>
                             <h2 class="entry-title">
-                                <a href="blog-single.html">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
+                                <a href="#">Start server (comsci-ubru.tk).</a>
                             </h2>
                             <div class="entry-meta">
                                 <ul>
                                     <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Phumin-DEV</a></li>
                                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2022-05-30">June 1, 2022</time></a></li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">0 Comments</a></li>
                                 </ul>
                             </div>
 
                             <div class="entry-content">
                                 <p>
-                                Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                                Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
+                                    Website create by Phumin-DEV & Onlypond, Project start on 2022/05/31. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem nemo dolore quaerat eius, numquam similique aliquid fuga obcaecati repudiandae adipisci qui necessitatibus nihil, iure facere ex exercitationem. Delectus nesciunt labore, magni voluptatum expedita, neque quasi error iure in reprehenderit amet.
                                 </p>
                                 <div class="read-more">
-                                    <a href="blog-single.html">Read More</a>
+                                    <a href="#">Read More</a>
                                 </div>
                             </div>
                         </article> <!-- End blog entry -->
@@ -125,7 +124,7 @@
 
                                 <div class="post-item clearfix">
                                     <img src="{{ url_for('static', filename='image/blog/blog-recent-1.jpg') }}" alt="">
-                                    <h4><a href="blog-single.html">Nihil blanditiis at in nihil autem</a></h4>
+                                    <h4><a href="#">Start server (comsci-ubru.tk)</a></h4>
                                     <time datetime="2022-05-30">June 1, 2022</time>
                                 </div>
 
@@ -191,6 +190,14 @@
     <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+    <!-- javascript -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.6.0.js') }}"></script> <!-- Ajex -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweetalert -->
+
+    <!-- singin and singup system -->
+    <script src="{{ url_for('static', filename='js/member.js') }}"></script>
+
 
     <!-- Template Main JS File -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>

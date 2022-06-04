@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
     <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <title>computer science - ubru</title>
+    <title>HOME - COMSCI-UBRU</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -44,8 +44,8 @@
         <div class="container">
         <div class="row">
             <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <h1 data-aos="fade-up">We offer modern solutions for growing your business</h1>
-            <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites with Bootstrap</h2>
+            <h1 data-aos="fade-up">Computer Science</h1>
+            <h2 data-aos="fade-up" data-aos-delay="400">Ubon Ratchathani Rajabhat University.</h2>
             <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
                 <a onclick="signin()" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -83,6 +83,17 @@
 
     <!-- singin and singup system -->
     <script src="{{ url_for('static', filename='js/member.js') }}"></script>
+
+    {% if session['success'] == "ok" %}
+        <script type="text/javascript">
+            Swal.fire({
+                title: 'Success!',
+                text: 'We have received your infomation.',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+        </script>
+    {% endif %}
 
 </body>
 </html>

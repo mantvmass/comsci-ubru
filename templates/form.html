@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Favicons -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}" type="image/x-icon">
+    <link href="{{ url_for('static', filename='image/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>FORM - COMSCI-UBRU</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">HELLO FRESHY65!</div>
+        <div class="content">
+        <form action="/form" method="post" enctype="multipart/form-data">
+            <div class="user-details">
+            <div class="input-box">
+                <span class="details">Full Name</span>
+                <input name="fullname" type="text" placeholder="นพรัตร์ บุญทวี" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Nick Name</span>
+                <input name="nickname" type="text" placeholder="เอเจ" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Facebook URL</span>
+                <input name="facebook_url" type="text" placeholder="https://facebook.com/me" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input name="number" type="text" placeholder="0987654321" required>
+            </div>
+            <div class="input-box">
+                <span class="details">Upload A Photo</span>
+                <input name="file" type="file" id="file" accept="image/*" required>
+                <label for="file" id="label-up-txt">
+                    <i class="material-icons">
+                        add_photo_alternate
+                    </i>&nbsp;
+                    Choose a Photo
+                </label> <span class="choose_alert" id="custom-text"></span>
+            </div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span class="gender">Male</span>
+                </label>
+                <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span class="gender">Female</span>
+                </label>
+            </div>
+            <div class="button">
+                <input type="submit" value="Go!">
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const readFileBtn = document.getElementById('file')
+        const labelUpTxt = document.getElementById('label-up-txt')
+        const customTxt = document.getElementById('custom-text')
+        readFileBtn.addEventListener("change", function() {
+            if (readFileBtn.value) {
+                console.log(readFileBtn.value)
+                labelUpTxt.innerHTML = "Upload Success"
+                let fileName = readFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)
+                customTxt.innerHTML = "Filename: " + fileName[1]
+            } else {
+                labelUpTxt.innerHTML = "Upload Fail"
+                customTxt.innerHTML = "Unable to upload, please try again."
+            }
+        })
+    </script>
+    
+</body>
+</html>
