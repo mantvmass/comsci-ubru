@@ -2,43 +2,31 @@ COMSCI-UBRU
 =========== 
 A site for organizing freshman activaties for shools or universities.
 
-**Run in linux**  
+**Start server**  
 
-    > # Clone the source  
+    > # Clone the source  or Download source
     > git clone https://github.com/mantvmass/comsci-ubru  
 
-    > # Change path
+    > # Open cmd and change path
     > cd path/to/comsci
     
     > # Install package
-    > chmod 777 package.sh
-    > ./package.sh
-    
-    > # Run
-    > python server.py
-    
-**Run in Windows**  
-
-    > # Download the source  
-    > https://github.com/mantvmass/comsci-ubru  
-    
-    > # Unzip and open terminal or cmd
-
-    > # Change path
-    > cd path/to/comsci
-    
-    > # Install package
-    > package
+    > pip install -r requrement.txt
     
     > # Run
     > python server.py
 
 ### setting
-set in file application_set.py  
-test settings
+config database and path
 ```python
-import application_set
-print(application_set.key)
+# Change this to your secret key (can be anything, it's for extra protection)
+app.secret_key = 'your secret key'
+# Enter your database connection details below
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_PORT'] = 3306 # MariaDB dafault port 3306
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'comsci'
 ```
                                                                                                                                        
 Supports
