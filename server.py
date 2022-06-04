@@ -173,6 +173,7 @@ def singup():
                         return  'Please fill out the form!'
                     else:
                         # password encode
+                        password = password_hash(password)
                         if password == False:
                             return "encode error"
                         else:
