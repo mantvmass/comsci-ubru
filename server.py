@@ -430,5 +430,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    app.run(debug=True) # run development and Aotu restart
-    # app.run(host='localhost', port=3000) # run production / host = ip server or localhost
+    # app.run(debug=True) # run development and Aotu restart
+    app.run(host='localhost', port=5000) # run production / host = ip server or localhost
