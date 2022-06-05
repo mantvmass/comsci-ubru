@@ -11,7 +11,7 @@ A site for organizing freshman activaties for shools or universities.
     > cd path/to/comsci
     
     > # Install package
-    > pip install -r requrement.txt
+    > pip install -r requrements.txt
     
     > # Run
     > python server.py
