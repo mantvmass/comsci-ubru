@@ -3,7 +3,7 @@ CREATE DATABASE comsci;
 CREATE TABLE accounts (
     id int(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email varchar(150) NOT NULL UNIQUE,
-    username varchar(150) NOT NULL UNIQUE,
+    fullname varchar(150) NOT NULL,
     password varchar(255) NOT NULL,
     is_admin tinyint(1) NOT NULL DEFAULT 0,
     banned tinyint(1) NOT NULL DEFAULT 0,
