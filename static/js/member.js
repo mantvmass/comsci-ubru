@@ -3,22 +3,22 @@ function signin() {
     Swal.fire({
         title: 'SignIn Form',
         html: `
-            <input type="text" id="username" class="swal2-input" placeholder="Username">
+            <input type="email" id="email" class="swal2-input" placeholder="Email">
             <input type="password" id="password" class="swal2-input" placeholder="Password">
             `,
         confirmButtonText: 'Submit',
         focusConfirm: false,
         preConfirm: () => {
-            const username = Swal.getPopup().querySelector('#username').value
+            const email = Swal.getPopup().querySelector('#email').value
             const password = Swal.getPopup().querySelector('#password').value
-            if (!username || !password) {  Swal.showValidationMessage(`Please enter username and password`) }
-            return { username: username, password: password }
+            if (!email || !password) {  Swal.showValidationMessage(`Please enter email and password`) }
+            return { email: email, password: password }
         }
         }).then((result) => {
             $.ajax({  
                 method: 'POST',
                 url: '/signin', 
-                data: { username: result.value.username, password: result.value.password },
+                data: { email: result.value.email, password: result.value.password },
                 success: function(response) {
                     if (response == "success"){
                         let timerInterval
@@ -71,7 +71,7 @@ function signup() {
     Swal.fire({
         title: 'SignUp Form',
         html: `
-            <input type="text" id="username" class="swal2-input" placeholder="Username">
+            <input type="text" id="fullname" class="swal2-input" placeholder="Full Name">
             <input type="email" id="email" class="swal2-input" placeholder="Email">
             <input type="password" id="password" class="swal2-input" placeholder="Password">
             <input type="password" id="key" class="swal2-input" placeholder="Key">
@@ -79,18 +79,18 @@ function signup() {
         confirmButtonText: 'Submit',
         focusConfirm: false,
         preConfirm: () => {
-            const username = Swal.getPopup().querySelector('#username').value
+            const fullname = Swal.getPopup().querySelector('#fullname').value
             const email = Swal.getPopup().querySelector('#email').value
             const password = Swal.getPopup().querySelector('#password').value
             const key = Swal.getPopup().querySelector('#key').value
-            if (!username || !password || !email || !key) { Swal.showValidationMessage(`Please compleate the infomation`) }
+            if (!fullname || !password || !email || !key) { Swal.showValidationMessage(`Please compleate the infomation`) }
             // if (password != re_password) { Swal.showValidationMessage(`Incorrect password`) }
-            return { username: username, email: email, password: password, key: key }}
+            return { fullname: fullname, email: email, password: password, key: key }}
         }).then((result) => {
             $.ajax({  
                 method: 'POST',
                 url: '/signup', 
-                data: { username: result.value.username, email: result.value.email, password: result.value.password, key: result.value.key },
+                data: { fullname: result.value.fullname, email: result.value.email, password: result.value.password, key: result.value.key },
                 success: function(response) {
                     if (response == "success"){
                         Swal.fire({
