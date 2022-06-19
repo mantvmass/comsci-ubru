@@ -109,10 +109,10 @@ def blog():
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
     if request.method == 'POST':
-        if 'username' in request.form and 'password' in request.form:
+        if 'email' in request.form and 'password' in request.form:
             # print(request.form)
             # Create variables for easy access
-            username = request.form['username']
+            email = request.form['email']
             password = request.form['password']
             # Check if account exists using MySQL
             cursor = sql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -121,7 +121,7 @@ def signin():
             if password == False:
                 return "encode error"
             else:
-                cursor.execute('SELECT * FROM `accounts` WHERE `username` = %s AND `password` = %s', (username, password,))
+                cursor.execute('SELECT * FROM `accounts` WHERE `email` = %s AND `password` = %s', (email, password,))
                 # Fetch one record and return result
                 account = cursor.fetchone()
                 # If account exists in accounts table in out database
@@ -130,12 +130,13 @@ def signin():
                     session['loggedin'] = True
                     session['id'] = account['id']
                     session['email'] = account['email']
-                    session['username'] = account['username']
+                    session['password'] = account['password']
+                    session['fullname'] = account['fullname']
                     session['is_admin'] = account['is_admin']
                     # send response
                     return 'success'
                 else:
-                    return 'Invalid username or password'
+                    return 'Invalid email or password'
         else:
             return "data error"
     else:
@@ -145,12 +146,12 @@ def signin():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def singup():
-    # Check if "username", "password" and "email" POST requests exist (user submitted form)
+    # Check if "fullname", "password" and "email" POST requests exist (user submitted form)
     if request.method == 'POST':
-        if 'username' in request.form and 'password' in request.form and 'email' in request.form and 'key' in request.form:
+        if 'fullname' in request.form and 'password' in request.form and 'email' in request.form and 'key' in request.form:
             # print(request.form)
             # Create variables for easy access
-            username = request.form['username']
+            fullname = request.form['fullname']
             password = request.form['password']
             email = request.form['email']
             key = request.form['key']
@@ -164,12 +165,12 @@ def singup():
                     return "Key doesn't match"
                 else:
                     # Check if account exists using MySQL
-                    cursor.execute('SELECT * FROM `accounts` WHERE `username` = %s or `email` = %s', (username, email))
+                    cursor.execute('SELECT * FROM `accounts` WHERE `email` = "%s"'%email)
                     account = cursor.fetchone() # return True/False
                     # If account exists show error and validation checks
                     if account:
                         return 'Account already exists!'
-                    elif not username or not password or not email:
+                    elif not fullname or not password or not email or not key:
                         return  'Please fill out the form!'
                     else:
                         # password encode
@@ -178,7 +179,7 @@ def singup():
                             return "encode error"
                         else:
                             # Account doesnt exists and the form data is valid, now insert new account into accounts table
-                            cursor.execute('INSERT INTO `accounts` (`username`, `email`, `password`) VALUES (%s, %s, %s)', (username, email, password))
+                            cursor.execute('INSERT INTO `accounts` (`fullname`, `email`, `password`) VALUES (%s, %s, %s)', (fullname, email, password))
                             sql.connection.commit()
                             return 'success'
             else:
@@ -196,7 +197,8 @@ def logout():
    session.pop('loggedin', None)
    session.pop('id', None)
    session.pop('email', None)
-   session.pop('username', None)
+   session.pop('password', None)
+   session.pop('fullname', None)
    # Redirect to home page
    return redirect(url_for('index'))
 
@@ -219,7 +221,7 @@ def dashboard():
         cursor = sql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM `sub` WHERE `id` = {}'.format(session['id']))
         data = cursor.fetchall() # return True/False
-        return render_template('dashboard.html', username=session['username'], bar_active=request.path, data=data)
+        return render_template('dashboard.html', fullname=session['fullname'], bar_active=request.path, data=data)
     # User is not loggedin redirect to login page
     return redirect(url_for('index'))
 
@@ -256,7 +258,7 @@ def manage():
             qr_path = False
             hint =None
         # User is loggedin show them the home page
-        return render_template('manage.html', username=session['username'], token=token, qrpath=qr_path, hint=hint, bar_active=request.path)
+        return render_template('manage.html', fullname=session['fullname'], token=token, qrpath=qr_path, hint=hint, bar_active=request.path)
     # User is not loggedin redirect to login page
     return redirect(url_for('index'))
 
@@ -284,7 +286,7 @@ def create_hint():
             if data:
                 return "Aready have infomation"
             else:
-                data = str(session['username'])+str(session['email'])+str(timestamp())
+                data = str(session['fullname'])+str(session['email'])+str(timestamp())
                 token = generate_token(data)
                 qrcode_path = generate_qr(token)
                 # print(token)
@@ -430,5 +432,5 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    # app.run(debug=True) # run development and Auto restart
-    app.run(host='localhost', port=80) # run production / host = ip server or localhost 192.168.0.100
+    app.run(debug=True) # run development and Auto restart
+    # app.run(host='localhost', port=80) # run production / host = ip server or localhost 192.168.0.100
