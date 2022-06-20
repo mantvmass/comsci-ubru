@@ -143,7 +143,7 @@
                         <div class="row mb-3">
                         <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                         <div class="col-md-8 col-lg-9">
-                            <input name="fullName" type="text" class="form-control" id="fullName" value="{{session['fullname']}}">
+                            <input name="fullName" type="text" class="form-control" id="fullName" value="{{session['fullname']}}" readonly>
                         </div>
                         </div>
 
@@ -164,7 +164,7 @@
                         <div class="row mb-3">
                         <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                         <div class="col-md-8 col-lg-9">
-                            <input name="email" type="email" class="form-control" id="Email" value="{{session['email']}}">
+                            <input name="email" type="email" class="form-control" id="Email" value="{{session['email']}}" readonly>
                         </div>
                         </div>
 
@@ -242,32 +242,32 @@
 
                     <div class="tab-pane fade pt-3" id="profile-change-password">
                     <!-- Change Password Form -->
-                    <form>
+                    <form id="resetpass" action="/reset" method="post">
 
                         <div class="row mb-3">
-                        <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="password" type="password" class="form-control" id="currentPassword">
-                        </div>
-                        </div>
-
-                        <div class="row mb-3">
-                        <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="newpassword" type="password" class="form-control" id="newPassword">
-                        </div>
+                            <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="password" type="password" class="form-control" id="currentPassword">
+                            </div>
                         </div>
 
                         <div class="row mb-3">
-                        <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                        <div class="col-md-8 col-lg-9">
-                            <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                            <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="newpassword" type="password" class="form-control" id="newPassword">
+                            </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                            </div>
                         </div>
 
                         <div class="text-center">
-                        <!-- <button onclick="error_alert()" type="submit" class="btn btn-primary">Change Password</button> -->
-                        <a onclick="error_alert()" class="btn btn-primary">Save Changes</a>
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                            <!-- <a onclick="error_alert()" class="btn btn-primary">Save Changes</a> -->
                         </div>
                     </form><!-- End Change Password Form -->
 
@@ -292,11 +292,13 @@
 
     <!-- Vendor JS Files -->
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.6.0.js') }}"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweetalert -->
+
     <script>
         function error_alert(){
             Swal.fire({

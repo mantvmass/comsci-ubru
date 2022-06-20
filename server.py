@@ -271,6 +271,29 @@ def profile():
     return redirect(url_for('index'))
 
 
+@app.route('/reset', methods=['POST'])
+def reset():
+    if 'loggedin' in session and request.method == 'POST':
+        password = request.form['password']
+        newpassword = request.form['newpassword']
+        renewpassword = request.form['renewpassword']
+        if newpassword == renewpassword:
+            password = password_hash(password)
+            newpassword = password_hash(newpassword)
+            if password != False:
+                if password == session['password']:
+                    cursor = sql.connection.cursor(MySQLdb.cursors.DictCursor)
+                    ok = cursor.execute('UPDATE `accounts` SET `password` = "{}" WHERE `id` = {}'.format(newpassword, session['id']))
+                    if ok:
+                        sql.connection.commit()
+                        return "success"
+                else:
+                    return "Invalid password"
+        else:
+            return "Password do not match"
+        return "update error"
+
+
 @app.route('/create_hint', methods=['GET', 'POST'])
 def create_hint():
     # Check if "hint" POST requests exist (user submitted form)
